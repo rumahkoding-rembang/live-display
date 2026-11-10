@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mode Pengetik — Live Typing</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:'class'}</script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-white">
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    <header class="mb-8 flex items-center justify-between gap-3">
+      <a href="index.html" class="text-sm text-blue-600 hover:underline">← Beranda</a>
+      <button id="themeBtn" class="rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-700">🌙 / ☀️ Tema</button>
+    </header>
+    <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-7">
+      <h1 class="text-2xl font-bold">Mode Pengetik</h1>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Buat Room ID baru atau gunakan Room ID yang sudah dibagikan.</p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <input id="roomInput" inputmode="numeric" maxlength="6" placeholder="Room ID (6 angka)" class="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-lg tracking-widest outline-none focus:border-blue-500 dark:border-slate-700 dark:bg-slate-950">
+        <button id="joinBtn" class="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">Hubungkan</button>
+        <button id="newBtn" class="rounded-xl border border-slate-300 px-5 py-3 font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Buat Room</button>
+      </div>
+      <div id="connection" class="mt-4 text-sm text-slate-500">Belum terhubung.</div>
+      <div id="editorArea" class="mt-7 hidden">
+        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>Room: <strong id="roomLabel" class="font-mono text-lg tracking-widest"></strong></div>
+          <button id="copyBtn" class="rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-slate-700">Salin link tampilan</button>
+        </div>
+        <textarea id="editor" rows="12" maxlength="20000" disabled placeholder="Mulai mengetik di sini. Setiap perubahan akan tampil di perangkat lain..." class="w-full resize-y rounded-xl border border-slate-300 bg-slate-50 p-4 text-lg leading-relaxed outline-none focus:border-blue-500 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-950"></textarea>
+        <div class="mt-2 flex justify-between text-xs text-slate-500"><span id="syncStatus">Menunggu...</span><span id="charCount">0 / 20.000</span></div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button id="clearBtn" class="rounded-xl border border-red-300 px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 dark:border-red-900 dark:hover:bg-red-950">Hapus semua teks</button>
+          <button id="leaveBtn" class="rounded-xl border border-slate-300 px-4 py-2 text-sm dark:border-slate-700">Putuskan koneksi</button>
+        </div>
+      </div>
+    </section>
+    <p class="mt-5 text-xs leading-relaxed text-slate-500">Catatan: siapa pun yang mengetahui Room ID dapat melihat dan mengubah teks pada room tersebut. Jangan gunakan untuk kata sandi atau informasi rahasia.</p>
+  </main>
+  <script type="module" src="js/input.js"></script>
+</body></html>
